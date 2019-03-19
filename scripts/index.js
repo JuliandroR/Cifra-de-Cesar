@@ -3,6 +3,8 @@ const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m
 const criptografar = () => {
     let palavra = capturaInput()
     let retorno = ""
+    let num = sorteiaNum()
+
     for (let i = 0; i < palavra.length; i++) {
         if (palavra[i] == " ") {
             retorno += "-"
@@ -13,10 +15,10 @@ const criptografar = () => {
                 letraCifrada = alfabeto[j]
                 j++
             }
-            if (j < alfabeto.length + 4) {
-                retorno += alfabeto[j + 4]
+            if (j < alfabeto.length + num) {
+                retorno += alfabeto[j + num]
             }
-            else if (j > alfabeto.length + 4) {
+            else if (j > alfabeto.length + num) {
                 retorno += alfabeto[j]
             }
             else {
@@ -24,13 +26,15 @@ const criptografar = () => {
             }
         }
     }
+    retorno += `${num}`
     devolveHTML(retorno)
 }
 
 const descriptografar = () => {
     let palavra = capturaInput()
     let retorno = ""
-    for (let i = 0; i < palavra.length; i++) {
+    let num = palavra[palavra.length-1]
+    for (let i = 0; i < palavra.length - 1; i++) {
         if (palavra[i] == "-") {
             retorno += " "
         } else {
@@ -40,16 +44,18 @@ const descriptografar = () => {
                 letraCifrada = alfabeto[j]
                 j--
             }
-            if (j < alfabeto.length - 4) {
-                retorno += alfabeto[j - 4]
+            if (j < alfabeto.length - num) {
+                retorno += alfabeto[j - num]
             }
-            else if (j > alfabeto.length - 4) {
+            else if (j > alfabeto.length - num) {
                 retorno += alfabeto[j]
             }
             else {
                 alert('Erro!')
             }
         }
+        console.log(retorno);
+        
     }
     devolveHTML(retorno)
 }
@@ -60,4 +66,14 @@ const capturaInput = () => {
 
 const devolveHTML = (elemento) => {
     document.getElementById('retorno').innerHTML = elemento;
+}
+
+const sorteiaNum = () => {
+    let num = parseInt(Math.random() * 7)
+    if (num == 0) {
+        while (num == 0) {
+            num = parseInt(Math.random() * 7)
+        }
+    }
+    return num
 }
