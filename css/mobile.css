@@ -1,0 +1,57 @@
+@media (max-width: 1000px) {
+
+    header{
+        position: fixed;
+        top: 0;
+    }
+
+    header h2{
+        font-size: 7.5vw;
+    }
+
+    main{
+        flex-wrap: wrap;
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+    }
+
+    .introduction{
+        width: 100%;
+        margin: 0;
+        padding-top: 5vh;
+        margin-right: 0;
+        font-size: 1.5vw;
+    }
+
+    .encoder{
+        width: 100%;
+        padding-top: 5vh;
+    }
+
+    .encoder input{
+        display: block;
+        margin: 5vh auto;
+        width: 80%;
+        font-size: 3vw;
+    }
+
+    .encoder input:focus{
+        transform: scale(1);
+    }
+    
+    .encoder button{
+        width: 40%;
+        height: 6vh;
+        font-size: 2.5vw;
+        color: #4E3629;
+    }
+    
+    .encoder button:hover{
+        transform: scale(1);
+    }
+    
+    
+    footer h2{
+        font-size: 5vw;
+    }
+}
