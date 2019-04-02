@@ -2,11 +2,7 @@
 
 body{
     font-family: 'Noto Sans JP', sans-serif;
-
-    background: url('../images/antique-business-classic-1364700.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background: linear-gradient(to left, #A47449, #956C58);
 }
 
 body, header, main, input, h2, p, a{
@@ -17,13 +13,95 @@ body, header, main, input, h2, p, a{
 header{
     width: 100%;
     height: 8vh;
-    background-color: rgba(55, 58, 54, 0.95);
+    background-color: #4E3629;
+    user-select: none;
 }
 
 header h2{
     text-align: center;
-    font-size: 2.25vw;
-    padding-top: 0.75vh;
+    font-size: 2.5vw;
     font-weight: bold;
     color: aliceblue;
+    user-select: none;
+}
+
+main{
+    display: flex;
+    width: 90%;
+    margin: 0 5%;
+    user-select: none;
+}
+
+.introduction{
+    width: 40%;
+    margin-right: 5%;
+    padding-top: 7.5vh;
+    text-align: justify;
+    font-size: 1.25vw;
+}
+
+.encoder{
+    width: 55%;
+    padding-top: 15vh;
+}
+
+.encoder input{
+    display: block;
+    margin: 5vh auto;
+    width: 60%;
+    height: 6vh;
+    text-align: center;
+    border: 0.15vw solid #AE8A79;
+    background: none;
+    border-radius: 0.5vw;
+    font-size: 1vw;
+    transition: 1.2;
+    color: #C5B9AC;
+}
+
+.encoder input:focus{
+    transform: scale(1.05);
+    border: 0.15vw solid #5B3427;
+    background: rgba(98, 59, 42, 0.6);
+}
+
+.encoder input::placeholder{
+    color: #EDC8A3;
+}
+
+.encoder button{
+    display: block;
+    width: 25%;
+    margin: 0 auto;
+    height: 5.5vh;
+    margin-bottom: 2.5vh;
+    border-radius: 0.5vw;
+    border: 0.1vw solid #4E3629;
+    background: #BF9474;
+    font-weight: bold;
+    font-size: 1vw;
+    color: #4E3629;
+}
+
+.encoder button:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+    color: #BF9474;
+    background: #4E3629;
+}
+
+
+footer{
+    position: fixed;
+    bottom: 0vh;
+    background-color: #4E3629;
+    width: 100%;
+    height: 6vh;
+    align-content: center;
+    text-align: center;
+    color: aliceblue;
+}
+
+footer h2{
+    font-size: 1.5vw;
 }
