@@ -1,4 +1,6 @@
-const alfabeto = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+const alfabeto = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Á", "À", "Ç", "Ã", "Õ", "Â", "Ô", "Ó", "Ò", "É", "Ê", "È"]
+console.log(alfabeto.length);
+
 
 const criptografar = () => {
     let palavra = capturaInput(0).toUpperCase()
@@ -7,7 +9,7 @@ const criptografar = () => {
 
     for (let i = 0; i < palavra.length; i++) {
         if (palavra[i] == " ") {
-            retorno += "-"
+            retorno += " "
         } else {
             let letraCifrada = null
             let j = 0
@@ -36,11 +38,11 @@ const descriptografar = () => {
     let retorno = ""
     let num = parseInt(capturaInput(1))
     for (let i = 0; i < palavra.length; i++) {
-        if (palavra[i] == "-") {
+        if (palavra[i] == " ") {
             retorno += " "
         } else {
             let letraCifrada = null
-            let j = 26
+            let j = 37
             while (letraCifrada != palavra[i]) {
                 letraCifrada = alfabeto[j]
                 j--
