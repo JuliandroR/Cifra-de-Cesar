@@ -42,7 +42,7 @@ const descriptografar = () => {
             retorno += " "
         } else {
             let letraCifrada = null
-            let j = 37
+            let j = alfabeto.length
             while (letraCifrada != palavra[i]) {
                 letraCifrada = alfabeto[j]
                 j--
