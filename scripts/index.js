@@ -1,42 +1,72 @@
-const alfabeto = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Á", "À", "Ç", "Ã", "Õ", "Â", "Ô", "Ó", "Ò", "É", "Ê", "È"]
-console.log(alfabeto.length);
+const alfabeto = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
 
 const criptografar = () => {
     let palavra = capturaInput(0).toUpperCase()
     let retorno = ""
-    let num = parseInt(capturaInput(1))
 
     for (let i = 0; i < palavra.length; i++) {
         if (palavra[i] == " ") {
             retorno += " "
-        } else {
-            let letraCifrada = null
-            let j = 0
-            while (letraCifrada != palavra[i]) {
-                letraCifrada = alfabeto[j]
-                j++
-            }
-            if (j < alfabeto.length + num) {
-                retorno += alfabeto[j + num]
-            }
-            else if (j > alfabeto.length + num) {
-                retorno += alfabeto[j]
-            }
-            else {
-                alert('Erro!')
-            }
+        }
+        else if (palavra[i] == "Á" || palavra[i] == "À" || palavra[i] == "Ã" || palavra[i] == "Â") {
+            retorno += criptografador("A")
+
+        }
+        else if (palavra[i] == "É" || palavra[i] == "È" || palavra[i] == "Ê") {
+            retorno += criptografador("E")
+        }
+        else if (palavra[i] == "Í" || palavra[i] == "Ì") {
+            retorno += criptografador("I")
+        }
+        else if (palavra[i] == "Ó" || palavra[i] == "Ò" || palavra[i] == "Õ" || palavra[i] == "Ô") {
+            retorno += criptografador("O")
+        }
+        else if (palavra[i] == "Ú" || palavra[i] == "Ù") {
+            retorno += criptografador("U")
+        }
+        else if (palavra[i] == "Ç") {
+            retorno += criptografador("C")
+        }
+        else {
+
+            retorno += criptografador(palavra[i])
         }
     }
-    console.log(retorno);
-    
+
     devolveHTML(retorno)
+}
+
+const criptografador = (letra) => {
+    let num = parseInt(capturaInput(1)) % 2
+    let letraCifrada = null
+    let j = 0
+    while (letraCifrada != letra) {
+
+        letraCifrada = alfabeto[j]
+        j++
+        if (j > alfabeto.length - 1) {
+            break;
+        }
+    }
+
+    if (j < alfabeto.length) {
+        if (j < alfabeto.length + num) {
+            return alfabeto[j + num]
+        }
+        else if (j > alfabeto.length + num) {
+            return letra
+        }
+    }
+    else {
+        return letra;
+    }
 }
 
 const descriptografar = () => {
     let palavra = capturaInput(0).toUpperCase()
     let retorno = ""
-    let num = parseInt(capturaInput(1))
+    let num = parseInt(capturaInput(1)) % 2
     for (let i = 0; i < palavra.length; i++) {
         if (palavra[i] == " ") {
             retorno += " "
@@ -51,14 +81,13 @@ const descriptografar = () => {
                 retorno += alfabeto[j - num]
             }
             else if (j >= alfabeto.length - num) {
-                retorno += alfabeto[j]
+                retorno += palavra[i]
             }
             else {
-                alert('Erro!')
+                retorno += palavra[i]
             }
         }
-        console.log(retorno);
-        
+
     }
     devolveHTML(retorno)
 }
@@ -72,8 +101,6 @@ const devolveHTML = (elemento) => {
 }
 
 const limpar = () => {
-    console.log('entrou na função');
-    
     devolveHTML("____________________")
     document.getElementsByTagName('input')[0].value = ""
     document.getElementsByTagName('input')[1].value = ""
