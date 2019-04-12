@@ -38,7 +38,7 @@ const criptografar = () => {
 }
 
 const criptografador = (letra) => {
-    let num = parseInt(capturaInput(1)) % 2
+    let num = parseInt(capturaInput(1)) % (alfabeto.length % 3)
     let letraCifrada = null
     let j = 0
     while (letraCifrada != letra) {
@@ -66,7 +66,7 @@ const criptografador = (letra) => {
 const descriptografar = () => {
     let palavra = capturaInput(0).toUpperCase()
     let retorno = ""
-    let num = parseInt(capturaInput(1)) % 2
+    let num = parseInt(capturaInput(1)) % (alfabeto.length % 3)
     for (let i = 0; i < palavra.length; i++) {
         if (palavra[i] == " ") {
             retorno += " "
